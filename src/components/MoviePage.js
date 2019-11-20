@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import useFetch from '../utils/fetch';
 
-function MoviePage() {
-    return (
+const Movie = (props) => {
+    const { id } = props.match.params;
+    
+    const { response } = useFetch(`http://api.tvmaze.com/shows/${id}`, {});
+
+    if (!response) {
+        return <div>Loading...</div>
+    }
+    const movie = response
+
+    return (      
         <div>
-            <h1>Welcome to MoviePage</h1>
-            <p>
-                <Link to="/">Back to home</Link>
-            </p>
+            <h2>Single movie view</h2>
+            <div>
+                <div></div>
+                <h2>{movie.id}</h2>
+                <p>{movie.url}</p>
+            </div>
         </div>
-    )
+        
+    );
 }
 
-export default MoviePage;
+export default Movie;
