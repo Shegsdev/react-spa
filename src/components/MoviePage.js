@@ -5,7 +5,7 @@ import useFetch from '../utils/fetch';
 const MoviePage = (props) => {
     const { id } = props.match.params;
     
-    const { response } = useFetch(`http://api.tvmaze.com/shows/${id}`, {});
+    const { response } = useFetch(`https://api.tvmaze.com/shows/${id}`, {});
 
     if (!response) {
         return <div className="lds-ripple text-center mt-64 mx-auto"><div></div><div></div></div>

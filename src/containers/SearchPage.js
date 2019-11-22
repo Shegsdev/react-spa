@@ -8,7 +8,7 @@ import usefetch from '../utils/fetch';
 const SearchPage = (props) => {
 
     const parsed = queryString.parse(props.location.search);
-    const { response } = usefetch("http://api.tvmaze.com/search/shows?q=" + parsed['?q'], {});
+    const { response } = usefetch("https://api.tvmaze.com/search/shows?q=" + parsed['?q'], {});
 
     let movieList = response !== null ? response.map((data) => {
         return (

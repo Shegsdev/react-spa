@@ -3,7 +3,7 @@ import { GET_ALL_MOVIES, GET_ERRORS } from './types';
 
 export const getAllMovies = () => async (dispatch) => {
     try {
-        const response = await axios.get('http://api.tvmaze.com/shows');
+        const response = await axios.get('https://api.tvmaze.com/shows');
         const data = await response.data;
         dispatch(setMovies(data));
     } catch(error) {
