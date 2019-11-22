@@ -20,7 +20,7 @@ npm install
 ```
 then let's build our styles:
 ```
-npx tailwind build index.css -o styles.css
+npx tailwind build src/index.css -o src/styles.css
 ```
 
 ### Finally, enter:
