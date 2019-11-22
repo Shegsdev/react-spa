@@ -3,12 +3,23 @@ import queryString from 'querystring';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import StarRatings from 'react-star-ratings';
+import Progress from 'react-progressbar';
 import usefetch from '../utils/fetch';
 
 const SearchPage = (props) => {
 
     const parsed = queryString.parse(props.location.search);
     const { response } = usefetch("https://api.tvmaze.com/search/shows?q=" + parsed['?q'], {});
+
+    if (!response) return (
+      <div>
+        <Progress
+            animation={300}
+            completed={45}
+            color='teal'
+            height='5px' />
+      </div>
+    )
 
     let movieList = response !== null ? response.map((data) => {
         return (
@@ -57,7 +68,7 @@ const SearchPage = (props) => {
                 </ol>
             </nav>
             {/* End Breadcrumb */}
-          <div className="six-equal-sized-columns grid mx-auto container">
+          <div className="m-8 five-equal-sized-columns grid">
               {movieList}
           </div>
         </React.Fragment>

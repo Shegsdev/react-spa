@@ -15,6 +15,7 @@ const SearchBar = () => {
         <div className="relative inline-block text-gray-600">
             <form onSubmit={handleSubmit}>
                 <input
+                    id="searchInput"
                     type="search"
                     name="search"
                     onChange={e => setQuery(e.target.value)}

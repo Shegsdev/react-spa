@@ -92,14 +92,14 @@ const MovieList = () => {
 
     return (
       <React.Fragment>
-        <header>
-            <h1 className="text-3xl font-bold pt-8 pb-4">TVMaze Movies</h1>
-            <SearchBar />
+        <header className="text-center">
+            <h1 className="text-3xl font-bold text-teal-500 pt-8 pb-4">TVMaze Movies</h1>
+            {!total ? <div className="lds-ripple"><div></div><div></div></div> : <SearchBar /> }
         </header>
         <div className="four-equal-sized-columns grid m-2">
-            {!isLoading ? <div className="lds-ripple text-cente mt-64 ml-64"><div></div><div></div></div> : movieList }
+            {!isLoading ? <div>loading...</div> : movieList }
         </div>
-        {!total ? <div className="lds-ripple text-center mt-64"><div></div><div></div></div> :
+        {!total ? <div></div> :
           <Pagination
             total={total}
             limit={limit}
@@ -116,7 +116,7 @@ const MovieList = () => {
               totalPages,
               getPageItemProps
             }) => (
-              <div className="m-8 text-center">
+              <div className="my-8 text-center">
                 <button
                   {...getPageItemProps({
                     pageValue: 1,

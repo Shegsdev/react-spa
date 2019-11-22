@@ -35,6 +35,21 @@ body {
         display: block;
     }
 }
+
+.five-equal-sized-columns {
+    grid-template-columns: repeat(5, 1fr);
+
+    @media only screen and (max-width : 1130px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width : 820px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width : 480px) {
+        display: block;
+    }
+}
+
 .six-equal-sized-columns {
     grid-template-columns: repeat(6, 1fr);
     @media only screen and (max-width : 1130px) {
@@ -123,4 +138,10 @@ body {
               height: 20px !important;
           }
       }
+  }
+
+  #searchInput {
+    @media only screen and (max-width : 480px) {
+        padding-right: 12em;
+    }
   }

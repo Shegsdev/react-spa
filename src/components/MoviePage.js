@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Progress from 'react-progressbar';
 import useFetch from '../utils/fetch';
 
 const MoviePage = (props) => {
@@ -8,7 +9,14 @@ const MoviePage = (props) => {
     const { response } = useFetch(`https://api.tvmaze.com/shows/${id}`, {});
 
     if (!response) {
-        return <div className="lds-ripple text-center mt-64 mx-auto"><div></div><div></div></div>
+        return (
+        <div>
+            <Progress
+                animation={300}
+                completed={35}
+                color='teal'
+                height='5px' />
+        </div>)
     }
     const movie = response;
     // Strip html tag from movie description
