@@ -1,5 +1,126 @@
-$blue: steelblue;
-
 body {
-    background: $blue;
+    margin: 0;
 }
+.wrapper {
+    .sidebar {
+        
+        @media only screen and (max-width : 768px) {
+            display: none;
+            header {
+                margin: 10px;
+            }
+        }
+    }
+    .m-1 {
+        margin-bottom: 1em;
+    }
+}
+/*Grid*/
+.grid {
+	display: grid;
+	justify-content: space-between;
+    gap: 1em;
+    
+}
+.four-equal-sized-columns {
+    grid-template-columns: repeat(4, 1fr);
+
+    @media only screen and (max-width : 1130px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width : 920px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width : 480px) {
+        display: block;
+    }
+}
+.six-equal-sized-columns {
+    grid-template-columns: repeat(6, 1fr);
+    @media only screen and (max-width : 1130px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media only screen and (max-width : 920px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5em;
+    }
+    @media only screen and (max-width : 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+    @media only screen and (max-width : 320px) {
+        display: block;
+        margin: 1.25em;
+    }
+}
+
+/*Card*/
+.card {
+    background: #fff;
+    cursor: pointer;
+    
+    .card-media {
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 250px;
+    }
+    .card-media:hover {
+        opacity: 0.9;
+    }
+    .card-content {
+        color: #fff;
+        font-size: 20px;
+    }
+    .actions {
+        margin: 15px;
+    }
+}
+
+/*Loader*/
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+        background:#2d987d;
+        position: absolute;
+        border: 4px solid rgb(12, 192, 117);
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      &:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+  }
+  
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+  
+  .star-ratings {
+      display: flex !important;
+
+      .star-container {
+          padding: 0 !important;
+          svg {
+              width: 20px !important;
+              height: 20px !important;
+          }
+      }
+  }
